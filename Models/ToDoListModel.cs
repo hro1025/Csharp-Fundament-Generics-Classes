@@ -1,10 +1,39 @@
+using System.Data.Common;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using Csharp_Fundament_Generics_Classes.Interfaces;
+
 namespace Csharp_Fundament_Generics_Classes.Models;
 
-public class ToDoListModel
+public class ToDoList
 {
-    public int Id { get; set; }
+    public readonly List<IToDoInfo> todos = new();
+    private int Id = 0;
 
-    public string Title { get; set; } = string.Empty;
+    public void Add()
+    {
+        var title = Console.ReadLine();
 
-    public string Done { get; set; } = string.Empty;
+        todos.Add(
+            new IToDoInfo
+            {
+                Id = Id++,
+                Title = title ?? string.Empty,
+                Done = false,
+            }
+        );
+    }
+
+    public void Remove()
+    {
+        var input = Console.ReadLine();
+
+        if (int.TryParse(input, out int id))
+        {
+            var idNumber = todos.FirstOrDefault(t => t.Id == id);
+
+            todos.Remove(idNumber);
+        }
+        ;
+    }
 }

@@ -4,8 +4,6 @@ namespace Csharp_Fundament_Generics_Classes.View;
 
 public class ViewOutput
 {
-    Controller controller = new Controller();
-
     public void Run()
     {
         // Styled text with markup
@@ -20,8 +18,6 @@ public class ViewOutput
             .AddRow("[blue]Tables[/]", "Structured data display")
             .AddRow("[yellow]Progress[/]", "Spinners and progress bars");
         AnsiConsole.Write(table);
-
-        Console.Write("Create new To-Do?: ");
-        string newToDO = Console.ReadLine();
+        Console.ReadKey();
     }
 }
