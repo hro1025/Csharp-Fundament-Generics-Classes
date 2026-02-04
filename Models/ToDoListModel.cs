@@ -1,6 +1,3 @@
-using System.Data.Common;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Csharp_Fundament_Generics_Classes.Interfaces;
 
 namespace Csharp_Fundament_Generics_Classes.Models;
@@ -30,10 +27,12 @@ public class ToDoList
 
         if (int.TryParse(input, out int id))
         {
-            var idNumber = todos.FirstOrDefault(t => t.Id == id);
+            var todo = todos.FirstOrDefault(t => t.Id == id);
 
-            todos.Remove(idNumber);
+            if (todo != null)
+            {
+                todos.Remove(todo);
+            }
         }
-        ;
     }
 }

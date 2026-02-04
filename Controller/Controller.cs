@@ -6,9 +6,14 @@ using Csharp_Fundament_Generics_Classes.Interfaces;
 using Csharp_Fundament_Generics_Classes.Models;
 using Csharp_Fundament_Generics_Classes.View;
 
-namespace Csharp_Fundament_Generics_Classes;
+namespace Csharp_Fundament_Generics_Classes.Controller;
 
-public class Controller
+public class ControllerClass
 {
-    public void CreateToDo(string title) { }
+    ViewOutput view = new ViewOutput();
+
+    public void Controller()
+    {
+        view.Run();
+    }
 }
