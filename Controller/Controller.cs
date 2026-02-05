@@ -8,12 +8,4 @@ using Csharp_Fundament_Generics_Classes.View;
 
 namespace Csharp_Fundament_Generics_Classes.Controller;
 
-public class ControllerClass
-{
-    ViewOutput view = new ViewOutput();
-
-    public void Controller()
-    {
-        view.Run();
-    }
-}
+public class ControllerClass { }
