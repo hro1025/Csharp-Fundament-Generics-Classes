@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Csharp_Fundament_Generics_Classes.Interfaces;
 
 namespace Csharp_Fundament_Generics_Classes.Models;
@@ -5,14 +6,14 @@ namespace Csharp_Fundament_Generics_Classes.Models;
 public class ToDoList
 {
     public List<IToDoInfo> Todos { get; } = new();
-    private int _id = 0;
+    private int id = 0;
 
     public void Add(string title)
     {
         Todos.Add(
             new IToDoInfo
             {
-                Id = _id++,
+                Id = id++,
                 Title = title,
                 Done = false,
             }
@@ -35,5 +36,10 @@ public class ToDoList
         {
             todo.Done = true;
         }
+    }
+
+    public List<IToDoInfo> ShowList()
+    {
+        return Todos;
     }
 }
