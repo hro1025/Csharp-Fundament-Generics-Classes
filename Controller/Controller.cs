@@ -16,13 +16,17 @@ public class ControllerClass(ToDoList toDo, ViewOutput output)
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Choose your operation")
-                    .AddChoices(new[] { "Create", "Delete", "Done", "Exit" })
+                    .AddChoices(new[] { "ShowList", "Create", "Delete", "Done", "Exit" })
             );
 
             switch (choice)
             {
+                case "ShowList":
+                    viewInfo.DisplayList();
+                    break;
                 case "Create":
-
+                    var title = AnsiConsole.Ask<string>("Name of the task");
+                    modelInfo.Add(title);
                     break;
                 case "Delete":
                     break;
