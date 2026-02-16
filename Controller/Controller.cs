@@ -22,6 +22,7 @@ public class ControllerClass(ToDoList toDo, ViewOutput output)
             switch (choice)
             {
                 case "ShowList":
+                    Console.Clear();
                     viewInfo.DisplayList();
                     break;
                 case "Create":
@@ -29,9 +30,17 @@ public class ControllerClass(ToDoList toDo, ViewOutput output)
                     modelInfo.Add(title);
                     break;
                 case "Delete":
+                    Console.WriteLine();
+                    viewInfo.DisplayList();
+                    var id = AnsiConsole.Ask<int>("Write Id of the task");
+                    modelInfo.Remove(id);
                     break;
 
                 case "Done":
+                    Console.WriteLine();
+                    viewInfo.DisplayList();
+                    var done = AnsiConsole.Ask<int>("Write Id of the task");
+                    modelInfo.Done(done);
                     break;
 
                 case "Exit":

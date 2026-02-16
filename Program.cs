@@ -11,7 +11,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        ControllerClass controller = new ControllerClass(new ToDoList(), new ViewOutput());
+        var todoList = new ToDoList();
+
+        ControllerClass controller = new ControllerClass(todoList, new ViewOutput(todoList));
+
         controller.Run();
     }
 }

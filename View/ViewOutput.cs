@@ -6,18 +6,18 @@ using Spectre.Console;
 
 namespace Csharp_Fundament_Generics_Classes.View;
 
-public class ViewOutput()
+public class ViewOutput(ToDoList toDo)
 {
-    ToDoList ToDo = new ToDoList();
+    ToDoList ToDo = toDo;
 
-    public void DisplayList(string title = "default", bool done = false)
+    public void DisplayList()
     {
         AnsiConsole.MarkupLine("[bold blue]Your To-Do-List[/]!");
         var table = new Table().AddColumn("Id").AddColumn("Title").AddColumn("Done");
 
         foreach (var item in ToDo.Todos)
         {
-            table.AddRow(item.Id.ToString(), item.Title = title, item.Done.ToString());
+            table.AddRow(item.Id.ToString(), item.Title, item.Done.ToString());
         }
 
         AnsiConsole.Write(table);

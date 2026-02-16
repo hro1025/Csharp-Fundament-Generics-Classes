@@ -5,8 +5,9 @@ namespace Csharp_Fundament_Generics_Classes.Models;
 
 public class ToDoList
 {
-    public List<IToDoInfo> Todos { get; } = [];
-    private int id = 0;
+    public List<IToDoInfo> Todos = new List<IToDoInfo>();
+
+    private int id = 1;
 
     public void Add(string title)
     {
@@ -18,18 +19,6 @@ public class ToDoList
                 Done = false,
             }
         );
-    }
-
-    public IToDoInfo GetTask(string title = "default task")
-    {
-        var todo = new IToDoInfo
-        {
-            Id = id++,
-            Title = title,
-            Done = false,
-        };
-
-        return todo;
     }
 
     public void Remove(int id)
